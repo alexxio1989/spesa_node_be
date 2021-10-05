@@ -1,18 +1,18 @@
 
 
-function createProdotto(req, res , connection) {
+function createTypeProdotto(req, res , connection) {
     let prodotto = req.body;
     let sql = "INSERT ";
    
 }
 
-function deleteProdotto(req, res , connection) {
+function deleteTypeProdotto(req, res , connection) {
     let prodotto = req.body;
     let sql = "INSERT ";
    
 }
 
-function getAllProdotto(req, res , connection) {
+function getAllTypeProdotto(req, res , connection) {
     let prodotto = req.body;
     let sql = "INSERT ";
    

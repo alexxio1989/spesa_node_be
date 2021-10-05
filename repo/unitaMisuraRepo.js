@@ -1,18 +1,18 @@
 
 
-function createProdotto(req, res , connection) {
+function createUnitaMisura(req, res , connection) {
     let prodotto = req.body;
     let sql = "INSERT ";
    
 }
 
-function deleteProdotto(req, res , connection) {
+function deleteUnitaMisura(req, res , connection) {
     let prodotto = req.body;
     let sql = "INSERT ";
    
 }
 
-function getAllProdotto(req, res , connection) {
+function getAllUnitaMisura(req, res , connection) {
     let prodotto = req.body;
     let sql = "INSERT ";
    

@@ -1,5 +1,6 @@
 
 const jwt= require('jsonwebtoken');
+const { Utente } = require('../dto/utente');
 require('dotenv').config();
 
 function createUtente(req, res , connection) {
@@ -29,12 +30,17 @@ function getUtente(req, res, connection) {
         }
         if(result && result.length > 0){
             let utenteRetrieved = result[0]
+            let utente = new Utente();
+            utente.nome = utenteRetrieved.nome;
+            utente.cognome = utenteRetrieved.cognome;
+            utente.username = utenteRetrieved.username;
+            utente.password = utenteRetrieved.password;
             const ts = process.env.TOKEN_SECRET;
             console.log('TOKEN_SECRET : ' + ts)
-            const accessToken = jwt.sign(JSON.stringify(utenteRetrieved) ,process.env.TOKEN_SECRET);
+            const accessToken = jwt.sign(JSON.stringify(utente) ,process.env.TOKEN_SECRET);
             console.log('ACCESS_SECRET : ' + accessToken)
             res.set("ACCESS_TOKEN" , accessToken)
-            res.send(utenteRetrieved)
+            res.send(utente)
         }
         
         
@@ -43,4 +49,4 @@ function getUtente(req, res, connection) {
 }
 
 
-module.exports = { createUtente , updatedUtente , deleteUtente , getUtente }
+module.exports = { createUtente , getUtente }
