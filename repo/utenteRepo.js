@@ -30,11 +30,7 @@ function getUtente(req, res, connection) {
         }
         if(result && result.length > 0){
             let utenteRetrieved = result[0]
-            let utente = new Utente();
-            utente.nome = utenteRetrieved.nome;
-            utente.cognome = utenteRetrieved.cognome;
-            utente.username = utenteRetrieved.username;
-            utente.password = utenteRetrieved.password;
+            let utente = utenteRetrieved;
             const ts = process.env.TOKEN_SECRET;
             console.log('TOKEN_SECRET : ' + ts)
             const accessToken = jwt.sign(JSON.stringify(utente) ,process.env.TOKEN_SECRET);
