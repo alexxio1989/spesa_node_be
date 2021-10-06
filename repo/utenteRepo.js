@@ -26,7 +26,7 @@ function getUtente(req, res, connection) {
     const result = connection.query(sql, params, (err, result) => {
        
         if (err) {
-            res.send('Salvataggio in errore')
+            res.send('Recupero in errore')
         }
         if(result && result.length > 0){
             let utenteRetrieved = result[0]

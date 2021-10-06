@@ -7,7 +7,7 @@ class Prodotto{
     prezzo_min = 0.0;
     prezzo_max = 0.0
     type = null;
-    market_idmarket = 0;
+    market = null;
     unitaMisura = null;
     utente_idutente = 0;
 

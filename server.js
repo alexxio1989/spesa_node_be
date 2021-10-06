@@ -1,6 +1,8 @@
 const express = require('express');
 const jwt= require('jsonwebtoken');
 const mysql = require('mysql'); 
+const { createTypeProdotto, deleteTypeProdotto, getAllTypeProdotto } = require('./repo/typeProdottoRepo');
+const { createUnitaMisura, deleteUnitaMisura, getAllUnitaMisura } = require('./repo/unitaMisuraRepo');
 const { createUtente, getUtente } = require('./repo/utenteRepo');
 const app = express()
 const port = 3000
@@ -35,8 +37,28 @@ app.post('/login' ,(req, res) => {
   getUtente(req, res, connection);
 })
 
-app.post('/test', authenticateToken ,(req, res) => {
-  res.send('ALL OK')
+app.post('/type/create' ,(req, res) => {
+  createTypeProdotto(req, res, connection);
+})
+
+app.post('/type/delete' ,(req, res) => {
+  deleteTypeProdotto(req, res, connection);
+})
+
+app.get('/type/getAll' ,(req, res) => {
+  getAllTypeProdotto(req, res, connection);
+})
+
+app.post('/um/create' ,(req, res) => {
+  createUnitaMisura(req, res, connection);
+})
+
+app.post('/um/delete' ,(req, res) => {
+  deleteUnitaMisura(req, res, connection);
+})
+
+app.get('/um/getAll' ,(req, res) => {
+  getAllUnitaMisura(req, res, connection);
 })
 
 function authenticateToken(req, res, next) {
