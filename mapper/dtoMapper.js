@@ -1,3 +1,4 @@
+const { Market } = require('../dto/market');
 const { Prodotto } = require('../dto/prodotto');
 const { TypeProdotto } = require('../dto/typeProdotto');
 const { UnitaMisura } = require('../dto/unitaMisura');
@@ -6,6 +7,17 @@ function getProdotto(obj) {
     let out = new Prodotto();
     if(out){
         
+    }
+    return out;
+}
+
+function getMarket(obj) {
+    let out = new Market();
+    if(out){
+        out.idmarket = obj.idmarket;
+        out.desc_market = obj.desc_market;
+        out.color_market = obj.color_market;
+        out.utente_idutente = obj.utente_idutente;
     }
     return out;
 }
@@ -31,4 +43,4 @@ function getUnitaMisura(obj) {
     return out;
 }
 
-module.exports = { getTypeProdotto, getUnitaMisura,getProdotto}
+module.exports = { getTypeProdotto, getUnitaMisura,getProdotto,getMarket}
