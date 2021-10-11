@@ -6,7 +6,15 @@ const { UnitaMisura } = require('../dto/unitaMisura');
 function getProdotto(obj) {
     let out = new Prodotto();
     if(out){
-        
+        out.idprodotto = obj.idprodotto;
+        out.denom = obj.nome_prodotto;
+        out.desc = obj.desc_prodotto;
+        out.prezzo_min = obj.prezzo_min;
+        out.prezzo_max = obj.prezzo_max;
+        out.type = getTypeProdotto(obj);
+        out.market = getMarket(obj);
+        out.unitaMisura = getUnitaMisura(obj);
+        out.utente_idutente = obj.utente_idutente;
     }
     return out;
 }
@@ -26,8 +34,8 @@ function getTypeProdotto(obj) {
     let out = new TypeProdotto();
     if(out){
         out.idtype_prodotto = obj.idtype_prodotto;
-        out.desc_prodotto = obj.desc_prodotto;
-        out.color_prodotto = obj.color_prodotto;
+        out.desc_prodotto = obj.desc_type_prodotto;
+        out.color_prodotto = obj.color_type_prodotto;
         out.utente_idutente = obj.utente_idutente;
     }
     return out;

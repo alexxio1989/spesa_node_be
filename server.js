@@ -1,6 +1,8 @@
 const express = require('express');
 const jwt= require('jsonwebtoken');
 const mysql = require('mysql'); 
+const { createMarket, deleteMarket, getAllMarket } = require('./repo/marketRepo');
+const { createProdotto, getAllProdotto } = require('./repo/prodottoRepo');
 const { createTypeProdotto, deleteTypeProdotto, getAllTypeProdotto } = require('./repo/typeProdottoRepo');
 const { createUnitaMisura, deleteUnitaMisura, getAllUnitaMisura } = require('./repo/unitaMisuraRepo');
 const { createUtente, getUtente } = require('./repo/utenteRepo');
@@ -59,6 +61,26 @@ app.post('/um/delete' ,(req, res) => {
 
 app.get('/um/getAll' ,(req, res) => {
   getAllUnitaMisura(req, res, connection);
+})
+
+app.post('/market/create' ,(req, res) => {
+  createMarket(req, res, connection);
+})
+
+app.post('/market/delete' ,(req, res) => {
+  deleteMarket(req, res, connection);
+})
+
+app.get('/market/getAll' ,(req, res) => {
+  getAllMarket(req, res, connection);
+})
+
+app.post('/prodotto/create' ,(req, res) => {
+  createProdotto(req, res, connection);
+})
+
+app.get('/prodotto/getAll' ,(req, res) => {
+  getAllProdotto(req, res, connection);
 })
 
 function authenticateToken(req, res, next) {

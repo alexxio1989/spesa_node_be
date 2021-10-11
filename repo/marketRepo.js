@@ -11,7 +11,7 @@ function createMarket(req, res , connection) {
     const result = connection.query(sql, params, (err, result) => {
        
         
-        getAllUnitaMisura(req, res , connection);
+        getAllMarket(req, res , connection);
         
     })
    
@@ -25,7 +25,7 @@ function deleteMarket(req, res , connection) {
     const result = connection.query(sql, params, (err, result) => {
        
        
-        getAllUnitaMisura(req, res , connection);
+        getAllMarket(req, res , connection);
         
     })
    

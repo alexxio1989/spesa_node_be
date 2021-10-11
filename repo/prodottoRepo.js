@@ -12,7 +12,11 @@ function createProdotto(req, res , connection) {
     const result = connection.query(sql, params, (err, result) => {
        
         
-        getAllTypeProdotto(req, res , connection);
+        if (err) {
+            res.send('Recupero in errore')
+        }
+
+        res.send('Salvataggio avvenuto con successo')
         
     })
    
@@ -33,7 +37,7 @@ function deleteProdotto(req, res , connection) {
 }
 
 function getAllProdotto(req, res , connection) {
-    const sql = "";
+    const sql = "SELECT p.* , m.idmarket , m.desc_market , m.color_market , tp.idtype_prodotto , tp.desc_type_prodotto , tp.color_type_prodotto , um.idunita_misura , um.desc_unita_misura FROM prodotto p JOIN market m ON p.market_idmarket = m.idmarket JOIN type_prodotto tp ON tp.idtype_prodotto = p.type_prodotto_idtype_prodotto JOIN unita_misura um ON um.idunita_misura = p.unita_misura_idunita_misura";
     const result = connection.query(sql, (err, result) => {
        
         if (err) {
